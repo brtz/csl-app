@@ -1,5 +1,9 @@
 class Switch
   include Mongoid::Document
+
   field :note, type: String
-  embedded_in :user
+  field :created_at, type: DateTime, default: Time.now
+  field :updated_at, type: DateTime, default: Time.now
+
+  belongs_to :user
 end

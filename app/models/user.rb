@@ -5,8 +5,10 @@ class User
   field :email, type: String
   field :password, type: String
   field :password_digest, type: String
+  field :created_at, type: DateTime, default: Time.now
+  field :updated_at, type: DateTime, default: Time.now
 
   has_secure_password
 
-  embeds_many :switches
+  has_many :switches
 end
