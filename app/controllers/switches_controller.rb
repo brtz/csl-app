@@ -4,7 +4,14 @@ class SwitchesController < SecuredController
   # GET /switches
   # GET /switches.json
   def index
-    @switches = Switch.all
+    if params[:limited].nil?
+      @switches = Switch.all
+    else
+      p current_user.id
+      p current_user.id.inspect
+      @switches = Switch.limited_by_userid(current_user.id)
+    end
+
   end
 
   # GET /switches/1
@@ -69,6 +76,6 @@ class SwitchesController < SecuredController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def switch_params
-      params.require(:switch).permit(:note, :user_id)
+      params.require(:switch).permit(:note, :limited)
     end
 end

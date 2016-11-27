@@ -5,5 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-adminuser = User.create(email: 'admin@csl.box', password: 'foobar')
-adminswitch = Switch.create(note: 'the first context switch', user: adminuser)
+firstuser = User.create(email: 'admin@csl.box', password: 'foobar')
+seconduser = User.create(email: 'user@csl.box', password: 'barfoo')
