@@ -7,8 +7,6 @@ class SwitchesController < SecuredController
     if params[:limited].nil?
       @switches = Switch.all
     else
-      p current_user.id
-      p current_user.id.inspect
       @switches = Switch.limited_by_userid(current_user.id)
     end
 
@@ -76,6 +74,6 @@ class SwitchesController < SecuredController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def switch_params
-      params.require(:switch).permit(:note, :limited)
+      params.require(:switch).permit(:note, :user_id)
     end
 end
