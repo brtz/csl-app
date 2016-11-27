@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @switch.note %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @switch.user %>
+</p>
+
+<%= link_to 'Edit', edit_switch_path(@switch) %> |
+<%= link_to 'Back', switches_path %>
